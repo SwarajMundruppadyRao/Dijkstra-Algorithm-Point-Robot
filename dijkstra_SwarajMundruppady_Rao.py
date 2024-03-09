@@ -116,3 +116,15 @@ def check_obstacles(coordinates):
         return False
     return True
 
+def input_start(prompt):
+    while True:
+        print("Enter", prompt, "node (x between 0 and 1499, y between 0 and 499) (Sample Input: 10,10): ")
+        input_str = input()
+        A = [int(i) for i in input_str.split(',')]
+        A_1 = (A[0], A[1])
+        if not (0 <= A[0] < 1500 and 0 <= A[1] < 500):
+            print("Enter valid input (x between 0 and 1499, y between 0 and 499)")
+        elif not check_obstacles(A_1):
+            print("The entered input lies on the obstacles or is not valid, please try again")
+        else:
+            return A_1
