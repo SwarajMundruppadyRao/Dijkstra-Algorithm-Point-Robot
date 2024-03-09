@@ -55,4 +55,64 @@ for y in range(500):
             canvas[x, y] = 1
         if polygon.contains_point((x, y)):
             canvas[x, y] = 1
-            
+
+#Pygame map generation
+def coords_pygame(coords, height):
+    return (coords[0], height - coords[1])
+
+def rect_pygame(coords, height, obj_height):
+    return (coords[0], height - coords[1] - obj_height)
+
+def create_map(visit, backtrack, start, Goal):
+    pygame.init()
+    size = [1200, 500]
+    screen = pygame.display.set_mode(size)
+    pygame.display.set_caption("Visualization")
+    video = vidmaker.Video("Dijkstra_swarajmr.mp4", late_export=True)
+
+    done = False
+    clock = pygame.time.Clock()
+    while not done:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+        screen.fill("white")
+        pygame.draw.rect(screen, "blue", [95,0, 85, 405], 0)
+        pygame.draw.rect(screen, "red",  [100,0, 75, 400], 0)
+        pygame.draw.rect(screen, "blue", [270,95,85,405], 0)
+        pygame.draw.rect(screen, "red", [275,100, 75, 400], 0)
+        pygame.draw.polygon(screen, "blue", ([784.903811, 327.886751], [650, 405.7735], [515.096189, 327.886751], [515.096189, 172.113249], [650,94.226497],[784.903811,172.113249]), 0)
+        pygame.draw.polygon(screen, "red", [[650,400], [520.096189,325], [520.096189,175],[650,100],[779.903811,175],[779.903811,325]], 0)
+        pygame.draw.polygon(screen, "blue", ([895,130],[895,45],[1105,45],[1105,455],[895,455],[895,370],[1015,370],[1015,130]), 0)
+        pygame.draw.polygon(screen, "red", ([900,50],[1100,50],[1100,450],[900,450],[900,375],[1020,375],[1020,125],[900,125]), 0)
+        pygame.draw.rect(screen, "blue", [0,0, 1200, 500], 5)
+        pygame.draw.circle(screen, (255, 255, 0), coords_pygame(start, 500), 1)
+        pygame.draw.circle(screen, (255, 255, 0), coords_pygame(Goal, 500), 1)
+        n=0
+        for j in visit:
+            n+=1
+            pygame.draw.circle(screen, (50, 137, 131), coords_pygame(j, 500), 1)
+            if n%50==0:
+                video.update(pygame.surfarray.pixels3d(screen).swapaxes(0, 1), inverted=False)
+                pygame.display.update()
+        pygame.draw.circle(screen, (0, 255, 0), coords_pygame(start, 500), -3)
+        pygame.draw.circle(screen, (0, 255, 0), coords_pygame(Goal, 500), -3)
+        counter=0
+        for i in backtrack:
+            pygame.draw.circle(screen, (255, 255, 0), coords_pygame(i, 500), 1)
+            if counter%50==0:
+                video.update(pygame.surfarray.pixels3d(screen).swapaxes(0, 1), inverted=False)
+            pygame.display.update()
+        pygame.draw.circle(screen, (255, 255, 0), coords_pygame(start, 500), 1)
+        pygame.draw.circle(screen, (255, 255, 0), coords_pygame(Goal, 500), 1)
+        done = True
+        
+    pygame.time.wait(10000)
+    pygame.quit()
+    video.export(verbose=True)
+    
+def check_obstacles(coordinates):
+    if canvas[coordinates[0], coordinates[1]]==1:
+        return False
+    return True
+
