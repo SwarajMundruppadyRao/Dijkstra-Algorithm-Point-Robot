@@ -178,3 +178,44 @@ def movedownright(que):
     if check_obstacles(coordinates) and coordinates not in visit:
         cost_to_come = que[0] + 1.4
         check_conditions(que, coordinates, cost_to_come)
+def dijkstra_algorithm():
+    #for calculating time required to run the code
+    start_time = time.time()
+    while (Q.qsize() != 0):
+        queue = Q.get()
+        # If current node is not the goal node continue exploring the map
+        if (queue[1] != goal):
+            if queue[1] not in visit:
+                #if current node not in visited nodes add the node and explore all the possible points of the map using actions
+                visit.add(queue[1])
+                # Check all possible moves
+                if (queue[1][1]+1 >= 0 and queue[1][1]+1 <= 500):
+                    moveup(queue)
+                if (queue[1][1]-1 >= 0 and queue[1][1]-1 <= 500):
+                    movedown(queue)
+                if (queue[1][0]-1 >= 0 and queue[1][0]-1 <= 1200):
+                    moveleft(queue)
+                if (queue[1][0]+1 >= 0 and queue[1][0]+1 <= 1200):
+                    moveright(queue)
+                if (queue[1][1]+1 <= 500 and queue[1][0]-1 >= 0):
+                    moveupleft(queue)
+                if (queue[1][0]+1 <= 1200 and queue[1][1]+1 <= 500):
+                    moveupright(queue)
+                if (queue[1][0]-1 >= 0 and queue[1][1]-1 >= 0):
+                    movedownleft(queue)
+                if (queue[1][0]+1 <= 1200 and queue[1][1]-1 <= 500):
+                    movedownright(queue)
+        else:
+            print('success')
+            # Generate and print the path
+            Backtrack = generate_path(Path, Start, goal)
+            print(Backtrack)
+            print('-----------')
+            print(queue)
+            end_time = time.time()
+            path_time = end_time - start_time
+            print('Time to calculate path:', path_time, 'seconds')
+            # Visualize the path using pygame
+            create_map(visit, Backtrack, Start, goal)
+            break
+
