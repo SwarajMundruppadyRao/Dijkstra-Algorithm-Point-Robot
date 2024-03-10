@@ -128,3 +128,53 @@ def input_start(prompt):
             print("The entered input lies on the obstacles or is not valid, please try again")
         else:
             return A_1
+#Defining Actions and associated cost addition(c2c)
+def moveup(que):
+    coordinates = (que[1][0], que[1][1]+1)
+    if check_obstacles(coordinates) and coordinates not in visit:
+        cost_to_come = que[0] + 1
+        check_conditions(que, coordinates, cost_to_come)
+
+def movedown(que):
+    coordinates = (que[1][0], que[1][1]-1)
+    if check_obstacles(coordinates) and coordinates not in visit:
+        cost_to_come = que[0] + 1
+        check_conditions(que, coordinates, cost_to_come)
+
+def moveleft(que):
+    coordinates = (que[1][0]-1, que[1][1])
+    if check_obstacles(coordinates) and coordinates not in visit:
+        cost_to_come = que[0] + 1
+        check_conditions(que, coordinates, cost_to_come)
+
+def moveright(que):
+    coordinates = (que[1][0]+1, que[1][1])
+    if check_obstacles(coordinates) and coordinates not in visit:
+        cost_to_come = que[0] + 1
+        check_conditions(que, coordinates, cost_to_come)
+
+def moveupleft(que):
+    coordinates = (que[1][0]-1, que[1][1]+1)
+    if check_obstacles(coordinates) and coordinates not in visit:
+        cost_to_come = que[0] + 1.4
+        check_conditions(que, coordinates, cost_to_come)
+
+
+def moveupright(que):
+    coordinates = (que[1][0]+1, que[1][1]+1)
+    if check_obstacles(coordinates) and coordinates not in visit:
+        cost_to_come = que[0] + 1.4
+        check_conditions(que, coordinates, cost_to_come)
+
+
+def movedownleft(que):
+    coordinates = (que[1][0]-1, que[1][1]-1)
+    if check_obstacles(coordinates) and coordinates not in visit:
+        cost_to_come = que[0] + 1.4
+        check_conditions(que, coordinates, cost_to_come)
+
+def movedownright(que):
+    coordinates = (que[1][0]+1, que[1][1]-1)
+    if check_obstacles(coordinates) and coordinates not in visit:
+        cost_to_come = que[0] + 1.4
+        check_conditions(que, coordinates, cost_to_come)
