@@ -1,17 +1,19 @@
-This code contains the submission for Project 2 of ENPM661  for path planning of a point robot for the given map using Dijkstra Algorithm 
+## Description 
+This repository contains code for path planning of a point robot using Dijkstra Algorithm 
 
-Libraries used in the Code :
-    - queue.PriorityQueue
-    - numpy
-    - sortedcollections.OrderedSet
-    - matplotlib.pyplot
-    - matplotlib.patches.Polygon
-    - time
-    - pygame
-    - vidmaker
-    - math
+## Libraries used in the Code 
 
-Steps to Run the code: 
+- queue.PriorityQueue
+- numpy
+- sortedcollections.OrderedSet
+- matplotlib.pyplot
+- matplotlib.patches.Polygon
+- time
+- pygame
+- vidmaker
+- math
+
+## Steps to Run the code: 
 1. Run the .py file
 2. Enter the Starting and Goal Co-ordinates as per the instructions visible in the terminal window
 3. The code will run and generate the path 
