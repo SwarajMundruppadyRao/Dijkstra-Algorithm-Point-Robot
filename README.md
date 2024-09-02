@@ -14,13 +14,18 @@ This repository contains code for path planning of a point robot using Dijkstra 
 - math
 
 ## Steps to Run the code: 
-1. Run the .py file
-2. Enter the Starting and Goal Co-ordinates as per the instructions visible in the terminal window
-3. The code will run and generate the path 
-4. The Node exploration and Optimal Path will be displayed by pygame
-5. Once the whole sequence is completed, a video output of the pygame visualisation will be compiled and generated in the folder where your run the code.
+1. Run the dijkstra_SwarajMundruppady_Rao.py file using the following command
+```bash
+  python3 dijkstra_SwarajMundruppady_Rao.py
+```
+3. Enter the Starting and Goal Co-ordinates as per the instructions visible in the terminal window
+4. The code will run and generate the path 
+5. The Node exploration and Optimal Path will be displayed by pygame
+6. Once the whole sequence is completed, a video output of the pygame visualisation will be compiled and generated in the folder where your run the code.
+
+## Video 
 
 
-Github Repository Link: https://github.com/SwarajMundruppadyRao/Dijkstra-Algorithm-Point-Robot-ENPM661
 
-The Repository will be made public post the submission date
+https://github.com/user-attachments/assets/7510936f-6d5f-4de0-8500-59790f42955f
+
