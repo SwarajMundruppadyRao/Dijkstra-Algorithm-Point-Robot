@@ -21,7 +21,7 @@ This repository contains code for path planning of a point robot using Dijkstra 
 3. Enter the Starting and Goal Co-ordinates as per the instructions visible in the terminal window
 4. The code will run and generate the path 
 5. The Node exploration and Optimal Path will be displayed by pygame
-6. Once the whole sequence is completed, a video output of the pygame visualisation will be compiled and generated in the folder where your run the code.
+6. Once the whole sequence is completed, a video output of the node exploration and optimal path from Point A to Point B will be generated. 
 
 ## Video 
 
